@@ -1,6 +1,8 @@
 #ifndef components_cpp
 #define components_cpp
 
+#define MASS_RADIUS_MULT 10
+
 #include "components.h"
 
 Vector::Vector() : x(0), y(0) {}
@@ -38,13 +40,16 @@ ostream& operator<<(ostream& out, const Vector& v) {
 }
 
 Point::Point() : loc(Vector()), init_vel(Vector()), rad(0), mass(0), current_time(0) {}
-Point::Point(const Vector& iloc, const Vector& i_init_vel, const Vector& iaccel, const double& ir) : loc(iloc), init_vel(i_init_vel), accel(iaccel), rad(ir), mass(2*ir), current_time(0) {}
+Point::Point(const Vector& iloc, const Vector& i_init_vel, const Vector& iaccel, const double& ir, const double& imass) : loc(iloc), init_vel(i_init_vel), accel(iaccel), rad(ir), mass(imass), current_time(0) {}
 Vector& Point::getloc() { return loc; }
 Vector& Point::getinitvel() { return init_vel; }
 Vector& Point::getaccel() { return accel; }
 double Point::getrad() const { return rad; }
 double Point::getmass() const { return mass; }
-double& Point::gettime() { return current_time; }
+double Point::gettime() const { return current_time; }
+void Point::reset_time() { 
+    current_time = 0;
+}
 void Point::inc_time() {
     current_time += TIME_INC;
 }

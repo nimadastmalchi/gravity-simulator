@@ -33,13 +33,14 @@ private:
     double rad, mass, current_time;
 public:
     Point();
-    Point(const Vector& iloc, const Vector& i_init_vel, const Vector& iaccel, const double& ir);
+    Point(const Vector& iloc, const Vector& i_init_vel, const Vector& iaccel, const double& ir, const double& mass);
     Vector& getloc();
     Vector& getinitvel();
     Vector& getaccel();
     double getrad() const;
     double getmass() const;
-    double& gettime();
+    double gettime() const;
+    void reset_time();
     void inc_time();
 };
 
