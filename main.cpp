@@ -6,9 +6,7 @@
 #include "components.h"
 #include "canvas.h"
 
-#define X_RES 100
-#define Y_RES 40
-#define G 100
+#define G 0
 
 using namespace std;
 
@@ -17,7 +15,7 @@ Point** objects;
 
 void refresh();
 void update_accels();
-void update_locs();
+void update_locs(const int& X_RES, const int& Y_RES);
 
 int main() {
     num_objs = 2;
@@ -28,7 +26,7 @@ int main() {
     Canvas c;
     while (true) {
         update_accels();
-        update_locs();
+        update_locs(c.getxres(), c.getyres());
         c.refresh(objects, num_objs);
         c.print_map();
     }
@@ -73,7 +71,7 @@ void update_accels() {
     
 }
 
-void update_locs() {
+void update_locs(const int& X_RES, const int& Y_RES) {
     for (unsigned i = 0; i < num_objs; i++) {
         Point* current = objects[i];
         

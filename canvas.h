@@ -4,18 +4,19 @@
 #include <iostream>
 #include "components.h"
 
-#define X_RES 100
-#define Y_RES 40
-
 using namespace std;
 
 class Canvas {
 private:
+    const static int X_RES = 100;
+    const static int Y_RES = 40;
     char map[X_RES][Y_RES];
 public:
     Canvas();
     void print_map();
     void refresh(Point** objs, int size);
+    int getxres() const;
+    int getyres() const;
 };
 
 #endif

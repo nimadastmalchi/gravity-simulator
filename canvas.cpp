@@ -74,4 +74,12 @@ void Canvas::refresh(Point** objs, int size) {
     }
 }
 
+int Canvas::getxres() const {
+    return X_RES;
+}
+
+int Canvas::getyres() const {
+    return Y_RES;
+}
+
 #endif
