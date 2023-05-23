@@ -20,8 +20,8 @@ void update_locs(const int& X_RES, const int& Y_RES);
 int main() {
     num_objs = 2;
     objects = new Point*[num_objs];
-    objects[0] = new Point(Vector(50, 20), Vector(0, 0), Vector(0, 0), 1, 1000000000);
-    objects[1] = new Point(Vector(60, 20), Vector(0, 0.1), Vector(0, 0), 1, 10000);
+    objects[0] = new Point(Vector(50, 20), Vector(0, 0), Vector(0, 0), 1, 100000000);
+    objects[1] = new Point(Vector(60, 20), Vector(1, 1), Vector(0, 0), 1, 100000000);
     
     Canvas c;
     while (true) {
